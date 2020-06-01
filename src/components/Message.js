@@ -8,7 +8,7 @@ class Message extends React.Component {
         }
 
     }
-
+    
     changeMessage() {
         this.setState({
             message: "Thank you for subscribing"
