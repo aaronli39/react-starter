@@ -43,4 +43,14 @@
 * props get passed to component, while state is managed within component
 * props are like function parameters, and state is like variable declarations
 * `props`/`this.props` for using props in functional/class components, and `useState Hooks`/`this.state` for using state in functional/class components
-* 
+
+**states**
+* `this.setState()` accepts two parameters: an object, and then an optional callback parameter to execute callback code(React sets the state, and then comes back to execute it)
+* whenever you have code to be executed after using `this.setState()`, you must put it as a function in the callback parameter of `this.setState()` to make sure it is handled after it
+* when there are multiple `this.setState()` calls, React groups them together into a single call to better performance. In order to make multiple calls to the same function in a setState, you must pass the function as the parameter instead of setting the state value directly. the function **must** have a `prevState` variable since the function has access to the previous state. `props` can be the second parameter of the function for setState 
+* you can **destructure** props in a `render()` method so that you only get the values you want
+
+**event handling**
+* in React, the event handler (eg. `onclick`) must be passed as a function, not a function call. In other words, do not use parentheses
+* React uses event binding purely because of how the `this` keyword operates in javascript, not how React works
+* **use arrow function syntax** if you want to pass parameters from the child to the parent

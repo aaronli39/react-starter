@@ -5,12 +5,12 @@ import React from "react"
 // }
 
 // ES6 syntax
-const Greet = (props) => {
-    console.log(props);
+const Greet = props => {
+    const {name, occ} = props;
     return (
         <div>
-            <h1>Hello { props.name }, who is a { props.occ } </h1>
-            { props.children }
+            <h1>Hello {name}, who is a {occ}</h1>
+            {props.children}
         </div>
     );
 }
