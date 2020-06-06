@@ -54,3 +54,11 @@
 * in React, the event handler (eg. `onclick`) must be passed as a function, not a function call. In other words, do not use parentheses
 * React uses event binding purely because of how the `this` keyword operates in javascript, not how React works
 * **use arrow function syntax** if you want to pass parameters from the child to the parent
+
+* if possible, avoid using index as a key in map functions
+* `<React.Fragment></React.Fragment>` allows us to return multiple HTML elemenst without inserted it into an enclosing `<div>` tag. Usiong fragments also allows the fragmented component/JSX to be directly rendered as HTML under the correct parent element(eg. `<td></td>` tag will be under `<tbody></tbody>` tag). **Use** `<> </>` as shorthand for React fragments, but you **cant** use key as an attribute
+
+**PureComponents**
+* pure components use a shallow props/state
+    * shallow means that comparison is same in value and in type for primitives, if they are complex types, a shallow comparison is true if they reference the same exact item
+* regular components will always re-render, but purecomponents only render if a shallow comparison is true, or if the value actually changes
