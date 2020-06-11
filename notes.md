@@ -62,3 +62,31 @@
 * pure components use a shallow props/state
     * shallow means that comparison is same in value and in type for primitives, if they are complex types, a shallow comparison is true if they reference the same exact item
 * regular components will always re-render, but purecomponents only render if a shallow comparison is true, or if the value actually changes
+* only work in class based components
+
+**react memo**
+* functional component's purecomponent
+* to make a functional component a memo, just export the component as a parameter of `React.memo()`
+
+**react portals**
+* allows you to manipulate nodes outside of the DOM, so you can render components onto a DOM node not under the div root
+* `ReactDOM.createPortal({JSX}, {getElementById})`
+* sometimes its easier to insert a child component into another DOM location, so this is where portals comes in
+
+**higher order component (HOC)**
+* pattern where a function takes a component as an argument and returns a new component
+* u pass in a component and the higherOrderComponent function would return a new component
+
+**render props**
+* a technique for sharing code between React components using a prop whose value is a function
+
+**react contexts**
+* provides a way to pass data through the component tree without having the pass the props down manually one by one in the component chain
+* you need 3 steps to use contexts:
+    * 1) you need to make a context file (exampleFile.js), in which you need to create a consumer(`React.createConsumer`) and a provider (`React.createProvider`), and **export** them
+    * 2) in the provider (usually `App.js`), you need enclose the parent component within the context component, and pass in a prop value
+    * 3) in the consumer (the component you want to use the context value in), you need to use the `exampleConsumer` component in which you define an arrow function that takes in the prop name as a parameter, and then return **valid** JSX that will become the page content
+* you can provide a default value as a parameter for `React.createContext` in order to set a default method for the consumer component that doesnt have a matching provider
+* you can also use contexts with using `Component.contextType = exampleContext`, where exampleContext is the context file, which is exported, and then imported into the component. This allows you to access the context value with `this.context`
+    * limitation is that you can only use one context field, and this only works with **class** components
+  
